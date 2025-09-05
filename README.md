@@ -4,9 +4,11 @@ day1-neural-networks-workshop
 #**Core Concept Questions & Answers**
 
 1. What is the role of feature scaling/normalization in training neural networks?
+
 -Feature scaling ensures that all input features are on a similar scale. This helps the network train faster, prevents some features from dominating, and improves convergence.
 
 2. Why do we split data into training and testing sets?
+
 -To evaluate how well the trained model generalizes to unseen data.
   Training set is for fitting the model, test set is for unbiased performance evaluation.
 
