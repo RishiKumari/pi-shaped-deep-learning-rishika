@@ -19,31 +19,31 @@ Visualize predictions vs actual values.
 ## Core Concept Questions & Answers
 
 ## 1. What is the benefit of using RNNs (or LSTMs) over traditional feedforward networks for time-series data?
-RNNs and LSTMs capture sequential dependencies, unlike feedforward networks. LSTMs can remember long-term patterns, which is crucial for stock forecasting.
+Traditional feedforward networks treat inputs independently and fail to capture temporal relationships. RNNs, and especially LSTMs, are designed to handle sequential dependencies by retaining past information. This memory aspect makes them powerful for time-series forecasting tasks like stock prices, where future values depend heavily on historical patterns.
 
 ## 2. Why is sequence framing (input windows) important in time series forecasting?
-Sequence framing converts past stock prices into supervised learning format (past n steps → next step), allowing the model to learn historical trends.
+Sequence framing restructures time-series data into supervised learning format, where previous values (windows) are used to predict the next step. Without this, models cannot learn temporal relationships. By providing historical context, sequence framing ensures that the network captures meaningful trends, making predictions more reliable and accurate.
 
 ## 3. How does feature scaling impact training of RNN/LSTM models?
-Scaling ensures all features are in the same range, preventing dominance of large values. It stabilizes training and speeds up convergence.
+Feature scaling normalizes all inputs into a consistent range, typically between 0 and 1. This prevents features with large magnitudes from dominating the learning process. Scaled inputs stabilize training, improve gradient flow, and speed up convergence, ultimately enabling RNNs and LSTMs to learn patterns more effectively and accurately.
 
 ## 4. Compare SimpleRNN and LSTM in terms of handling long-term dependencies.
-SimpleRNN works for short-term sequences but struggles with vanishing gradients. LSTMs retain information over longer sequences using gates.
+SimpleRNNs can capture short-term dependencies but struggle with long-term sequences due to vanishing gradients. LSTMs overcome this limitation through gated mechanisms that regulate information flow, allowing them to retain important patterns for longer periods. This makes LSTMs more effective in tasks like stock price forecasting, where past context matters significantly.
 
 ## 5. What regression metrics (e.g., MAE, RMSE) are appropriate for stock price prediction, and why?
-MAE gives average prediction error, while RMSE penalizes large errors more. Both are better suited than accuracy for continuous stock values.
+For stock prediction, metrics like MAE and RMSE are more meaningful than accuracy since outputs are continuous values. MAE provides the average prediction error, offering interpretability. RMSE penalizes larger errors more, making it sensitive to big deviations. Both help evaluate how close predictions are to actual stock values.
 
 ## 6. How can you assess if your model is overfitting?
-If training loss keeps dropping but validation/test loss rises, the model is overfitting by memorizing instead of generalizing.
+Overfitting occurs when the model memorizes training data instead of generalizing. A clear sign is low training loss but high validation or test loss. Monitoring learning curves helps identify overfitting, as the gap between training and validation performance widens, indicating the model is not performing well on unseen data.
 
 ## 7. How might you extend the model to improve performance (e.g., more features, deeper network)?
-Improvements include adding more stock indicators, deeper LSTM layers, dropout, or tuning hyperparameters like epochs and batch size.
+Model performance can be improved by introducing additional features like trading volume, moving averages, or market indicators. Architecturally, deeper LSTM layers or hybrid models can capture more complex relationships. Regularization methods such as dropout, along with hyperparameter tuning, further enhance the ability to generalize and avoid overfitting.
 
 ## 8. Why is it important to shuffle (or not shuffle) sequential data during training?
-Stock data should not be fully shuffled, since order matters. Maintaining sequence order ensures temporal relationships are preserved.
+For sequential data like stock prices, shuffling can break temporal order, leading to meaningless training. Since the sequence matters, data should be framed into windows while maintaining order. However, within batches, careful handling may be applied to balance training efficiency and preservation of time-based dependencies.
 
 ## 9. How can you visualize model prediction vs actual values to interpret performance?
-Plot actual vs predicted prices over time to visually check if the model follows market trends and identify mismatches.
+Visualizing predictions against actual stock prices helps assess how well the model tracks real market movements. Line plots are often used, showing true values and predictions over time. This provides intuitive insights into trends, errors, and whether the model consistently follows upward or downward stock price movements.
 
 ## 10. What real-world challenges arise when using RNNs for stock price prediction?
-Markets are noisy and influenced by external events. Models risk overfitting and often fail to generalize well to unseen data.
+Stock price prediction faces challenges due to market volatility, news impact, and unpredictable events. RNNs may overfit to historical data and fail to adapt to sudden changes. Additionally, financial data is noisy and non-stationary, making it difficult for even sophisticated models to generalize and deliver consistent accuracy.
