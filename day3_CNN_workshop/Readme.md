@@ -14,7 +14,7 @@
 6. Visualize results with confusion matrix and accuracy curves.
 
 
-## Core Concept Questions
+## Core Concept Questions with answers.
 ### 1. What advantages do CNNs have over traditional fully connected neural networks for image data?
 
 CNNs capture spatial patterns (edges, shapes, textures) using local filters, reducing the number of parameters compared to fully connected layers. This makes them more efficient and effective for image recognition.
