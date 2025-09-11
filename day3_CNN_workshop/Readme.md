@@ -1,5 +1,6 @@
 ## Objective: Build and train a Convolutional Neural Network (CNN) on the Fashion-MNIST dataset. Evaluate the trained model’s performance using classification metrics. 
 
+### Task Flow: 
 1. Load the Fashion-MNIST dataset (train + test sets).
 2. Preprocess the data:
    - Normalize pixel values to [0,1]
@@ -11,7 +12,6 @@
 4. Compile and train the model on training data.
 5. Evaluate on test set using accuracy and confusion matrix.
 6. Visualize results with confusion matrix and accuracy curves.
-
 
 
 ## Core Concept Questions
